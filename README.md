@@ -1,4 +1,4 @@
-![Demo](EkranKayd2026-03-08122944-ezgif.com-video-to-gif-converter.gif)# 
+![Demo](assets/EkranKayd2026-03-08122944-ezgif.com-video-to-gif-converter.gif)# 
 
 🎬 VidDrop — YouTube Video İndirici
 
@@ -59,11 +59,22 @@ viddrop/
 
 ## 🚀 Kullanım
 
-### Yöntem 1 — Çift Tıkla (Kolay)
+### Yöntem 1 — Docker (Önerilen) 🐳
+Eğer bilgisayarında Docker varsa, Python veya ffmpeg kurmakla uğraşmadan tek satırla çalıştırabilirsin:
+```bash
+docker compose up -d
+```
+Tarayıcıda aç: **http://localhost:5000** (İndirilen videolar proje klasöründeki `downloads/` içine otomatik gelir)
+
+### Yöntem 2 — Çift Tıkla (Windows İçin Kolay)
 `BAŞLAT.bat` dosyasına çift tıkla. Site otomatik açılır.
 
-### Yöntem 2 — Terminal
+### Yöntem 3 — Terminal (Eski Usul - MacOS/Linux Uyumlu)
+Terminali açıp proje klasörüne gidin ve sırasıyla şu komutları çalıştırın:
 ```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
 python app.py
 ```
 Tarayıcıda aç: **http://127.0.0.1:5000**
@@ -74,11 +85,17 @@ Tarayıcıda aç: **http://127.0.0.1:5000**
 
 ```
 viddrop/
-├── app.py              # Python sunucu
-├── index.html          # Web arayüzü
+├── app.py              # Uygulama giriş noktası
+├── src/                # Backend servisleri ve rotaları
+│   ├── app.py          # Flask uygulaması kurulumu
+│   ├── routes/         # API Endpoint'leri
+│   └── services/       # İndirme ve temizleme lojiği
+├── public/             # Frontend statik dosyaları (HTML, CSS, JS)
 ├── requirements.txt    # Kütüphaneler
+├── Dockerfile          # Docker kurulum dosyası
+├── docker-compose.yml  # Docker compose dosyası
 ├── BAŞLAT.bat          # Tek tıkla başlat (Windows)
-├── ffmpeg.exe          # Sen koyacaksın
+├── ffmpeg.exe          # Sen koyacaksın (Windows için)
 └── downloads/          # İndirilen videolar buraya gelir
 ```
 
