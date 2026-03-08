@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VidDrop — YouTube İndirici</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@300;400;500&display=swap"
+    rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div class="wrap">
+
+    <header>
+      <div class="logo-mark">
+        <svg viewBox="0 0 24 24">
+          <path d="M8 5v14l11-7z" />
+        </svg>
+      </div>
+      <div class="logo-text">
+        <h1>VidDrop</h1>
+        <p>YouTube Video İndirici</p>
+      </div>
+    </header>
+
+    <div class="card">
+
+      <!-- URL INPUT -->
+      <div class="input-row">
+        <input class="url-input" id="urlInput" type="text" placeholder="https://www.youtube.com/watch?v=..."
+          autocomplete="off" spellcheck="false">
+        <button class="btn-fetch" id="fetchBtn" onclick="fetchInfo()">Getir</button>
+      </div>
+
+      <!-- VIDEO INFO -->
+      <div id="videoInfo">
+        <img id="thumb" src="" alt="">
+        <div class="info-text">
+          <div class="info-title" id="vidTitle">—</div>
+          <div class="info-meta">
+            <span>📺 <span id="vidChannel">—</span></span>
+            <span>⏱ <span id="vidDuration">—</span></span>
+            <span>👁 <span id="vidViews">—</span></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- QUALITY -->
+      <div class="quality-label">Kalite Seç</div>
+      <div class="quality-grid" id="qualityGrid">
+        <button class="q-btn" data-q="4k">2160p <span class="badge">4K</span></button>
+        <button class="q-btn active" data-q="1080p">1080p <span class="badge">FHD</span></button>
+        <button class="q-btn" data-q="720p">720p</button>
+        <button class="q-btn" data-q="480p">480p</button>
+        <button class="q-btn" data-q="360p">360p</button>
+        <button class="q-btn" data-q="audio">🎵 MP3</button>
+      </div>
+
+      <!-- DOWNLOAD BTN -->
+      <button class="btn-download" id="dlBtn" onclick="startDownload()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
+          <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" />
+        </svg>
+        İndir
+      </button>
+
+      <!-- PROGRESS -->
+      <div id="progressArea">
+        <div class="progress-header">
+          <span id="progressStatus">İndiriliyor...</span>
+          <span id="progressPct">0%</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <div class="progress-info">
+          <span id="progressSpeed">—</span>
+          <span id="progressEta">ETA: —</span>
+        </div>
+      </div>
+
+      <!-- DONE -->
+      <div class="done-box" id="doneBox">
+        <div class="done-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#000">
+            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+          </svg>
+        </div>
+        <div class="done-text">
+          <strong>İndirme Tamamlandı!</strong>
+          <span id="doneFilename">—</span>
+        </div>
+        <a class="btn-save" id="saveLink" href="#" target="_blank">Kaydet</a>
+      </div>
+
+      <!-- ERROR -->
+      <div class="error-box" id="errorBox"></div>
+
+    </div>
+
+    <footer>Sadece kişisel kullanım için · Kendi sunucunda çalışır</footer>
+
+  </div>
+
+<script src="/js/main.js"></script>
+</body>
+
+</html>
