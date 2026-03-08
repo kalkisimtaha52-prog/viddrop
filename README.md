@@ -29,7 +29,7 @@ Kendi bilgisayarında çalışan, yüksek kaliteli YouTube video indirme uygulam
 ### 2. Projeyi İndir
 
 ```bash
-git clone https://github.com/KULLANICIADIN/viddrop.git
+git clone https://github.com/kursat-dev/viddrop
 cd viddrop
 ```
 
